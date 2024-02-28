@@ -72,3 +72,21 @@ Route::get('/articles/{id}', [ArticleController::class,'articles']);
 
 Route::resource('photos', PhotoController::class);
 
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
+
+// Route::get('/greeting', function () {
+//     return view('hello', ['name' => 'Nafiul Alam Dary Vega']);
+// });
+
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Nafiul Alam Dary Vega']);
+// });
+
+Route::get('/greeting', [WelcomeController::class,'greeting']);
+
